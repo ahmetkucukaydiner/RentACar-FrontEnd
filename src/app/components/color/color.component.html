@@ -2,16 +2,8 @@
   <span class="visually-hidden">Loading...</span>
 </div>
 
-<table *ngIf="dataLoaded == true" class="table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-
-  <tr *ngFor="let color of colors">
-    <td>{{color.id}}</td>
-    <td>{{color.name}}</td>
-  </tr>
-</table>
+<ul class="list-group">
+  <li (click)="clearCurrentColor()" [class]="getAllColorClass()" routerLink="/cars">Tüm Renkler</li>
+  <li (click)="setCurrentColor(color)" routerLink="/cars/color/{{color.id}}" [class]="getCurrentColorClass(color)"
+    *ngFor="let color of colors">{{color.name}}</li>
+</ul>

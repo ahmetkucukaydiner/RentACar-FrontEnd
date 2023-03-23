@@ -6,10 +6,11 @@
 <table *ngIf="dataLoaded==true" class="table">
 <thead>
   <tr>
-    <th>Car Name</th>
-    <th>Brand Name</th>
-    <th>Color</th>
-    <th>Daily Price</th>
+    <th>Model</th>
+    <th>Marka</th>
+    <th>Renk</th>
+    <th>Model Yılı</th>
+    <th>Günlük fiyat</th>
   </tr>
 </thead>
 
@@ -17,6 +18,7 @@
   <td>{{car.carName}}</td>
   <td>{{car.brandName}}</td>
   <td>{{car.colorName}}</td>
+  <td>{{car.modelYear}}</td>
   <td>{{car.dailyPrice}}</td>
 </tr>
 </table>
