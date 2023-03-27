@@ -2,7 +2,7 @@ import { provideCloudflareLoader } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Car } from 'src/app/models/carModel/car';
-import { CarService } from 'src/app/services/carServices/car.service';
+import { CarService } from 'src/app/services/carService/car.service';
 
 @Component({
   selector: 'app-car',
@@ -12,7 +12,7 @@ import { CarService } from 'src/app/services/carServices/car.service';
 export class CarComponent implements OnInit {
   dataLoaded = false;
   cars: Car[] = [];
-  currentCar:Car
+  currentCar: Car;
 
   constructor(
     private carService: CarService,
@@ -20,9 +20,9 @@ export class CarComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.activatedRoute.params.subscribe(params=>{
-      const brandId = params["brandId"];
-      const colorId = params["colorId"]
+    this.activatedRoute.params.subscribe((params) => {
+      const brandId = params['brandId'];
+      const colorId = params['colorId'];
 
       if (brandId && colorId) {
         this.getCarsByBrandAndColorId(brandId, colorId);
@@ -33,12 +33,15 @@ export class CarComponent implements OnInit {
       } else {
         this.getCars();
       }
-    })
+    });
   }
 
-  setCurrentCar(car: Car)
-  {
+  setCurrentCar(car: Car) {
     this.currentCar = car;
+  }
+
+  getCurrentCar(car: Car) {
+    car = this.currentCar;
   }
 
   getCars() {
@@ -50,22 +53,28 @@ export class CarComponent implements OnInit {
 
   getCarsByBrandId(brandId: number) {
     this.carService.getCarsByBrand(brandId).subscribe((response) => {
-      this.cars = response.data,
-      this.dataLoaded = true;
+      (this.cars = response.data), (this.dataLoaded = true);
     });
   }
 
-  getCarsByColorId(colorId:number){
-    this.carService.getCarsByColor(colorId).subscribe(response=>{
-      this.cars = response.data,
-      this.dataLoaded = true
-    })
+  getCarsByColorId(colorId: number) {
+    this.carService.getCarsByColor(colorId).subscribe((response) => {
+      (this.cars = response.data), (this.dataLoaded = true);
+    });
   }
 
-  getCarsByBrandAndColorId(brandId:number,colorId:number){
-    this.carService.getCarsByBrandAndColor(brandId,colorId).subscribe(response=>{
-      this.cars = response.data,
-      this.dataLoaded=true
-    })
+  getCarsByBrandAndColorId(brandId: number, colorId: number) {
+    this.carService
+      .getCarsByBrandAndColor(brandId, colorId)
+      .subscribe((response) => {
+        (this.cars = response.data), (this.dataLoaded = true);
+      });
+  }
+
+  getCarById(carId: number) {
+    this.carService.getCarById(carId).subscribe((response) => {
+      this.cars = response.data;
+      this.dataLoaded = true;
+    });
   }
 }

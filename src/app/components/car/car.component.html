@@ -3,22 +3,23 @@
 </div>
 
 
-<table *ngIf="dataLoaded==true" class="table">
-<thead>
-  <tr>
-    <th>Model</th>
-    <th>Marka</th>
-    <th>Renk</th>
-    <th>Model Yılı</th>
-    <th>Günlük fiyat</th>
-  </tr>
-</thead>
+<table *ngIf="dataLoaded==true" class="table table-primary table striped">
+  <thead>
+    <tr>
+      <th>Model</th>
+      <th>Marka</th>
+      <th>Renk</th>
+      <th>Model Yılı</th>
+      <th>Günlük fiyat</th>
+    </tr>
+  </thead>
 
-<tr *ngFor="let car of cars">
-  <td>{{car.carName}}</td>
-  <td>{{car.brandName}}</td>
-  <td>{{car.colorName}}</td>
-  <td>{{car.modelYear}}</td>
-  <td>{{car.dailyPrice}}</td>
-</tr>
+  <tr (click)="setCurrentCar(car)" routerLink="/carDetail/{{car.id}}" *ngFor="let car of cars">
+    <td>{{car.carName}}</td>
+    <td>{{car.brandName}}</td>
+    <td>{{car.colorName}}</td>
+    <td>{{car.modelYear}}</td>
+    <td>{{car.dailyPrice}}</td>
+  </tr>
 </table>
+
