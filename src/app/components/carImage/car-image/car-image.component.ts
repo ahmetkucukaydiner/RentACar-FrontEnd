@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CarImage } from 'src/app/models/carImage/carImage';
+import { CarImage } from 'src/app/models/carImageModel/carImage';
 import { CarImageService } from 'src/app/services/carImageService/car-image.service';
 
 @Component({

@@ -10,7 +10,7 @@ import { NaviComponent } from './components/navi/navi.component';
 import { RentalComponent } from './components/rental/rental.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CarImageComponent } from './components/carImage/car-image/car-image.component';
-import { CarDetailComponent } from './components/car-detail/car-detail.component';
+import { CarDetailComponent } from './components/car-detail/carDetail.component';
 
 
 @NgModule({

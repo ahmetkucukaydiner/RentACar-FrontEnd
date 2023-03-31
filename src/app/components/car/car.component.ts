@@ -1,6 +1,6 @@
-import { provideCloudflareLoader } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CarDetail } from 'src/app/models/carDetailModel/carDetail';
 import { Car } from 'src/app/models/carModel/car';
 import { CarService } from 'src/app/services/carService/car.service';
 
@@ -13,6 +13,8 @@ export class CarComponent implements OnInit {
   dataLoaded = false;
   cars: Car[] = [];
   currentCar: Car;
+  imageUrl = "https://localhost:44393/Uploads/Images/" ;
+  carDetails:CarDetail;
 
   constructor(
     private carService: CarService,
@@ -71,10 +73,15 @@ export class CarComponent implements OnInit {
       });
   }
 
-  getCarById(carId: number) {
-    this.carService.getCarById(carId).subscribe((response) => {
-      this.cars = response.data;
-      this.dataLoaded = true;
-    });
+  getCarImage(car:Car){
+    if (car.imagePath == null) {
+
+      let path = this.imageUrl + "DefaultLogo.png"
+      return path;
+    }
+    else{
+      let path = this.imageUrl + car.imagePath;
+      return path;
+    }
   }
 }
