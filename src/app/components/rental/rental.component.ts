@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Rental } from 'src/app/models/rentalModel/rental';
 import { RentalService } from 'src/app/services/rentalService/rental.service';
 
@@ -11,7 +12,7 @@ export class RentalComponent implements OnInit {
   dataLoaded = false
   rentals: Rental[] = []
 
-  constructor(private rentalService:RentalService){}
+  constructor(private rentalService:RentalService,private toastrService:ToastrService){}
 
   ngOnInit(): void {
     this.getRentals()

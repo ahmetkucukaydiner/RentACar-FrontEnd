@@ -24,7 +24,7 @@
 </div>
 <br>
   <div class="col-md-9 cardsize" >
-    <div class="card  ">
+    <div class="card">
       <div class="card-body">
         <h4 class="card-title text-center">{{carDetails.brandName |uppercase}} </h4>
         <h6 class="text-center">{{carDetails.carName}} </h6>
@@ -34,6 +34,8 @@
         <li class="list-group-item"><i><b>Renk</b></i> | {{carDetails.colorName}}</li>
         <li class="list-group-item"><i><b>Detaylar</b></i> | {{carDetails.brandName}}</li>
         <li class="list-group-item"><i><b>Günlük Fiyat</b></i> | {{carDetails.dailyPrice  | currency:"₺ " }}</li>
+        <li class="list-group-item"><i><b><button (click)="addToCart(carDetails)" type="button" class="btn btn-primary"
+          style="width: 100%;">Kirala</button></b></i></li>
       </ul>
 
     <br>
