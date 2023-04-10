@@ -19,7 +19,7 @@ export class RentalService {
   }
 
   add(rental:Rental):Observable<ResponseModel>{
-    let newUrl = this.apiUrl
+    let newUrl = this.apiUrl + "/add"
     return this.htppClient.post<ResponseModel>(newUrl, rental)
   }
 }
