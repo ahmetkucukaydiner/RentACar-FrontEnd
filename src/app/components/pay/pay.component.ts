@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { throttleTime } from 'rxjs';
+import { CreditCard } from 'src/app/models/creditCardModel/creditCardModel';
 import { Payment } from 'src/app/models/paymentModel/payment';
 import { PaymentService } from 'src/app/services/paymentService/payment.service';
 
@@ -16,7 +19,8 @@ export class PayComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private paymentService: PaymentService,
-    private toastrService: ToastrService
+    private toastrService: ToastrService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -27,18 +31,21 @@ export class PayComponent implements OnInit {
     this.payAddForm = this.formBuilder.group({
       fullName:['', Validators.required],
       cardNumber:['',Validators.required],
-      cvv:['',Validators.required],
-      month:['',Validators.required],
-      year:['',Validators.required]
+      cvv:['',Validators.required]
     });
   }
 
   add(){
     if(this.payAddForm.valid){
-      let pay:Payment = Object.assign({},this.payAddForm.value);
+      let pay:CreditCard = Object.assign({},this.payAddForm.value);
 
       this.paymentService.add(pay).subscribe(response=>{
         this.toastrService.success(response.message,"Başarılı!")
+        throttleTime(50);
+        this.toastrService.warning("Bilgi","Anasayfaya yönlendiriliyorsunuz.")
+        setTimeout(() =>{
+          this.router.navigateByUrl('/#');
+        },2000);
       },responseError=>{
         if(responseError){
           this.toastrService.error(responseError.message,"Doğrulama hatası");
