@@ -12,7 +12,7 @@
     <label for="brandFilter" class="form-label">Marka ara</label>
     <select [(ngModel)]="brandFilter" class="form-select" aria-label="Default select example">
       <option value="0" [selected]="">Lütfen bir marka seçiniz</option>
-      <option value="0">Tüm Markalar</option>
+      <option value="getBrands()">Tüm Markalar</option>
       <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
     </select>
   </div>
@@ -21,7 +21,7 @@
     <label for="colorFilter" class="form-label">Renk ara</label>
     <select [(ngModel)]="colorFilter" class="form-select" aria-label="Default select example">
       <option value="0" selected [selected]="">Lütfen bir renk seçiniz</option>
-      <option value="0">Tüm renkler</option>
+      <option value="getColors()">Tüm renkler</option>
       <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
 
     </select>

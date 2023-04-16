@@ -22,6 +22,7 @@ import { CartSummaryComponent } from './components/cart-summary/cart-summary.com
 import { ToastrModule } from 'ngx-toastr';
 import { PaymentComponent } from './components/payment/payment.component';
 import { PayComponent } from './components/pay/pay.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { PayComponent } from './components/pay/pay.component';
     ColorFilterPipe,
     CartSummaryComponent,
     PaymentComponent,
-    PayComponent
+    PayComponent,
+    CarAddComponent
   ],
   imports: [
     BrowserModule,
