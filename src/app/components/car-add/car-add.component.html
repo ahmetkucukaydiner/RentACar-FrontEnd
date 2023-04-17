@@ -15,25 +15,33 @@
           <div class="mb-3">
             <label for="brandName">Marka</label>
             <div class="form-group">
-              <input type="text" id="brandName" formControlName="brandName" class="form-control" placeholder="Marka">
+              <select class="form-select" aria-label="Default select example">
+                <option value="0" [selected]="">Lütfen bir marka seçiniz</option>
+                <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+              </select>
             </div>
           </div>
           <div class="mb-3">
             <label for="colorName">Renk</label>
             <div class="form-group">
-              <input type="text" id="colorName" formControlName="colorName" class="form-control" placeholder="Renk">
+              <select class="form-select" aria-label="Default select example">
+                <option value="0" [selected]="">Lütfen bir renk seçiniz</option>
+                <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
+              </select>
             </div>
           </div>
           <div class="mb-3">
             <label for="modelYear">Model Yılı</label>
             <div class="form-group">
-              <input type="number" id="modelYear" formControlName="modelYear" class="form-control" placeholder="Model Yılı">
+              <input type="number" id="modelYear" formControlName="modelYear" class="form-control"
+                placeholder="Model Yılı">
             </div>
           </div>
           <div class="mb-3">
             <label for="dailyPrice">Günlük fiyat</label>
             <div class="form-group">
-              <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control" placeholder="Günlük fiyat">
+              <input type="number" id="dailyPrice" formControlName="dailyPrice" class="form-control"
+                placeholder="Günlük fiyat">
             </div>
           </div>
         </form>
