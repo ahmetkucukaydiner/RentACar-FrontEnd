@@ -24,6 +24,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { PaymentComponent } from './components/payment/payment.component';
 import { PayComponent } from './components/pay/pay.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
+import { BrandAddComponent } from './components/brand-add/brand-add.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
 
 
 @NgModule({
@@ -43,7 +45,9 @@ import { CarAddComponent } from './components/car-add/car-add.component';
     CartSummaryComponent,
     PaymentComponent,
     PayComponent,
-    CarAddComponent
+    CarAddComponent,
+    BrandAddComponent,
+    ColorAddComponent
   ],
   imports: [
     BrowserModule,
