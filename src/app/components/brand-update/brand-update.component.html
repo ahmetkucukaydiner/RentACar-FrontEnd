@@ -1,1 +1,20 @@
-<p>brand-update works!</p>
+<div class="card shadow p-3 mb-5 bg-body rounded">
+  <div class="card-body">
+    <div class="card-title">
+      <h1 class="display-3">Marka güncelle</h1>
+    </div>
+    <form [formGroup]="brandUpdateForm">
+      <div class="mb-3">
+        <label for="brandName" class="form-label">Marka</label>
+        <input type="text" id="brandName" class="form-control" formControlName="name" placeholder="Marka gir">
+      </div>
+    </form>
+
+    <div class="footer">
+      <div class="btn-group float-end">
+        <button (click)="delete()" class="btn btn-outline-danger">Sil</button>
+        <button (click)="update()" class="btn btn-outline-dark">Güncelle</button>
+      </div>
+    </div>
+  </div>
+</div>
