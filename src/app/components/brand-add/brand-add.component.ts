@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { BrandService } from 'src/app/services/brandService/brand.service';
 
@@ -15,7 +16,8 @@ export class BrandAddComponent implements OnInit {
   constructor(
     private toastrService: ToastrService,
     private brandService: BrandService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router:Router
   ) {}
 
   ngOnInit(): void {
@@ -44,5 +46,9 @@ export class BrandAddComponent implements OnInit {
     }else{
       this.toastrService.error('Marka ismi girmediniz.','Hata');
     }
+  }
+
+  backToList(){
+    this.router.navigate(["brands"]);
   }
 }

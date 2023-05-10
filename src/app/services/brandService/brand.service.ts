@@ -26,7 +26,7 @@ export class BrandService {
   }
 
   getByBrandId(id:number) : Observable<EntityResponseModel<Brand>>{
-    let newUrl = this.apiUrl + 'getbybrandid?id=' + id
+    let newUrl = this.apiUrl + 'getbyid?id=' + id
     return this.httpClient.get<EntityResponseModel<Brand>>(newUrl);
   }
 

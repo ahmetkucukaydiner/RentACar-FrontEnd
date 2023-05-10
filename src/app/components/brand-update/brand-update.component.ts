@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brandModel/brand';
 import { BrandService } from 'src/app/services/brandService/brand.service';
@@ -14,17 +14,20 @@ export class BrandUpdateComponent implements OnInit {
 
   brandUpdateForm:FormGroup ;
   brand: Brand = {id: 0, name: ""};
-
+  name:string;
+  id:number
   constructor(private brandService:BrandService,
     private formBuilder:FormBuilder,
     private toastrService:ToastrService,
-    private activatedRoute:ActivatedRoute) {};
+    private activatedRoute:ActivatedRoute,
+    private router:Router) {};
 
   ngOnInit(): void {
     this.activatedRoute.params.subscribe(params=>{
+      this.id = params["id"]
       this.getByBrandId(params['id']);
+      this.createUpdateForm();
     });
-    this.createUpdateForm();
   }
 
   createUpdateForm(){
@@ -36,7 +39,8 @@ export class BrandUpdateComponent implements OnInit {
   getByBrandId(id:number){
     this.brandService.getByBrandId(id).subscribe(response=>{
       this.brand = response.data
-      this.brandUpdateForm.controls['name'].setValue(this.brand.name)
+      this.name = this.brand.name
+      this.id = this.brand.id
     })
   }
 
@@ -62,5 +66,9 @@ export class BrandUpdateComponent implements OnInit {
     this.brandService.delete(this.brand).subscribe(response=>{
       this.toastrService.success(response.message);
     })
+  }
+
+  backToBrandList(){
+    this.router.navigate(['/brands/'])
   }
 }

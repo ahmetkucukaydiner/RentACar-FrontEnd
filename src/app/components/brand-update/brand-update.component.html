@@ -1,19 +1,23 @@
-<div class="card shadow p-3 mb-5 bg-body rounded">
-  <div class="card-body">
-    <div class="card-title">
-      <h1 class="display-3">Marka güncelle</h1>
-    </div>
-    <form [formGroup]="brandUpdateForm">
-      <div class="mb-3">
-        <label for="brandName" class="form-label">Marka</label>
-        <input type="text" id="brandName" class="form-control" formControlName="name" placeholder="Marka gir">
+<div class="content">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h5 class="title">Marka Güncelle</h5>
       </div>
-    </form>
-
-    <div class="footer">
-      <div class="btn-group float-end">
-        <button (click)="delete()" class="btn btn-outline-danger">Sil</button>
-        <button (click)="update()" class="btn btn-outline-dark">Güncelle</button>
+      <div *ngIf="brand" class="card-body">
+        <form [formGroup]="brandUpdateForm">
+            <div class="mb-3">
+            <label for="name">Marka adı</label>
+            <div class="form-group">
+              <input type="text" id="name" formControlName="name" class="form-control"
+               [(ngModel)]="name" />
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="card-footer">
+        <button class="btn btn-fill btn-dark" (click)="backToBrandList()">Geri dön</button>
+        <button class="btn btn-fill btn-success" (click)="update(); backToBrandList()"  style="float: right;">Güncelle</button>
       </div>
     </div>
   </div>
