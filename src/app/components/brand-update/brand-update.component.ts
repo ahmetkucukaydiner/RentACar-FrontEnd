@@ -62,12 +62,6 @@ export class BrandUpdateComponent implements OnInit {
     }
   }
 
-  delete() {
-    this.brandService.delete(this.brand).subscribe(response=>{
-      this.toastrService.success(response.message);
-    })
-  }
-
   backToBrandList(){
     this.router.navigate(['/brands/'])
   }

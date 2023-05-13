@@ -30,6 +30,7 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { BrandListComponent } from './components/brand-list/brand-list.component';
+import { BrandDeleteComponent } from './components/brand-delete/brand-delete.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { BrandListComponent } from './components/brand-list/brand-list.component
     CarUpdateComponent,
     BrandUpdateComponent,
     ColorUpdateComponent,
-    BrandListComponent
+    BrandListComponent,
+    BrandDeleteComponent
   ],
   imports: [
     BrowserModule,

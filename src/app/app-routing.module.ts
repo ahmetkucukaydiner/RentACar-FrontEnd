@@ -10,6 +10,7 @@ import { ColorAddComponent } from './components/color-add/color-add.component';
 import { BrandComponent } from './components/brand/brand.component';
 import { BrandUpdateComponent } from './components/brand-update/brand-update.component';
 import { BrandListComponent } from './components/brand-list/brand-list.component';
+import { BrandDeleteComponent } from './components/brand-delete/brand-delete.component';
 
 const routes: Routes = [
   { path: "", pathMatch:"full", component: CarComponent},
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'brands/add', component:BrandAddComponent},
   { path: 'colors/add', component:ColorAddComponent},
   { path: 'update/:id', component:BrandUpdateComponent},
+  { path: 'delete/:id', component:BrandDeleteComponent},
   { path: 'brands', component:BrandListComponent}
 
 ];
