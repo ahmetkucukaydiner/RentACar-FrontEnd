@@ -50,7 +50,11 @@ export class BrandDeleteComponent implements OnInit {
     this.brandService.delete(brand).subscribe(response=>{
       this.toastrService.success(response.message,"Başarılı");
     }, errorResponse=>{
-      this.toastrService.error(errorResponse.error.message, "Başarısız!")
+      if(errorResponse.error.Errors>0){
+        for(let i=0; errorResponse.error.Errors.length; i++){
+          this.toastrService.error(errorResponse.error.Errors[i],"Hata");
+        }
+      }
     })
   }
 

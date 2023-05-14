@@ -18,7 +18,7 @@ export class ColorAddComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
+    this.createColorAddForm();
   }
 
   createColorAddForm(){
