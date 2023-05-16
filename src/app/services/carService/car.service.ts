@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, RepeatConfig } from 'rxjs';
+import { observableToBeFn } from 'rxjs/internal/testing/TestScheduler';
 import { Car } from 'src/app/models/carModel/car';
 import { EntityResponseModel } from 'src/app/models/entityResponseModel';
 import { ListResponseModel } from 'src/app/models/listResponseModel';
@@ -43,5 +44,15 @@ export class CarService {
   add(car:Car):Observable<ResponseModel>{
     let newPath = this.apiUrl + "cars/add"
     return this.httpClient.post<ResponseModel>(newPath,car);
+  }
+
+  update(car:Car):Observable<ResponseModel>{
+    let newPath = this.apiUrl + "cars/update"
+    return this.httpClient.post<ResponseModel>(newPath,car)
+  }
+
+  delete(car:Car):Observable<ResponseModel>{
+    let newPath = this.apiUrl + "cars/delete"
+    return this.httpClient.post<ResponseModel>(newPath, car)
   }
 }

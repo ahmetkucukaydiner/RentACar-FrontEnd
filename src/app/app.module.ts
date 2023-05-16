@@ -33,6 +33,8 @@ import { BrandListComponent } from './components/brand-list/brand-list.component
 import { BrandDeleteComponent } from './components/brand-delete/brand-delete.component';
 import { ColorDeleteComponent } from './components/color-delete/color-delete.component';
 import { ColorListComponent } from './components/color-list/color-list.component';
+import { CarListComponent } from './components/car-list/car-list.component';
+import { CarDeleteComponent } from './components/car-delete/car-delete.component';
 
 
 @NgModule({
@@ -61,7 +63,9 @@ import { ColorListComponent } from './components/color-list/color-list.component
     BrandListComponent,
     BrandDeleteComponent,
     ColorDeleteComponent,
-    ColorListComponent
+    ColorListComponent,
+    CarListComponent,
+    CarDeleteComponent
   ],
   imports: [
     BrowserModule,

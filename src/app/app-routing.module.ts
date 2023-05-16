@@ -14,6 +14,9 @@ import { BrandDeleteComponent } from './components/brand-delete/brand-delete.com
 import { ColorListComponent } from './components/color-list/color-list.component';
 import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { ColorDeleteComponent } from './components/color-delete/color-delete.component'
+import { CarListComponent } from './components/car-list/car-list.component';
+import { CarDeleteComponent } from './components/car-delete/car-delete.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
 
 const routes: Routes = [
   { path: "", pathMatch:"full", component: CarComponent},
@@ -31,7 +34,10 @@ const routes: Routes = [
   { path: 'brands', component:BrandListComponent},
   { path: 'colors', component:ColorListComponent},
   { path: 'colors/update/:id', component:ColorUpdateComponent},
-  { path: 'colors/delete/:id', component:ColorDeleteComponent}
+  { path: 'colors/delete/:id', component:ColorDeleteComponent},
+  { path: 'carlist' , component:CarListComponent},
+  { path: 'cars/delete/:id', component:CarDeleteComponent},
+  { path: 'cars/update/:id', component:CarUpdateComponent}
 ];
 
 @NgModule({
