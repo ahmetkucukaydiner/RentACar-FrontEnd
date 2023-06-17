@@ -104,7 +104,7 @@ export class CarComponent implements OnInit {
   getCarImage(car:Car){
     if (car.imagePath == null) {
 
-      let path = this.imageUrl + "DefaultLogo.png"
+      let path = this.imageUrl + "DefaultImage.jpg"
       return path;
     }
     else{

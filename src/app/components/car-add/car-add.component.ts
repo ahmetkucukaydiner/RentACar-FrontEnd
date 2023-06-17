@@ -34,8 +34,8 @@ export class CarAddComponent implements OnInit {
   createCarAddForm() {
     this.carAddForm = this.formBuilder.group({
         carName: ['', Validators.required],
-        brandName: ['', Validators.required],
-        colorName: ['', Validators.required],
+        brandId: ['', Validators.required],
+        colorId: ['', Validators.required],
         modelYear: ['', Validators.required],
         dailyPrice: ['', Validators.required],
       }
@@ -59,6 +59,8 @@ export class CarAddComponent implements OnInit {
   add() {
     if (this.carAddForm.valid) {
       let carModel = Object.assign({}, this.carAddForm.value);
+      carModel.brandId = Number(carModel.brandId);
+      carModel.colorId = Number(carModel.colorId);
       this.carService.add(carModel).subscribe(response => {
           this.toastrService.success(response.message, 'Başarılı');
         },
@@ -74,7 +76,7 @@ export class CarAddComponent implements OnInit {
         }
       );
     } else {
-      this.toastrService.error('Formunuz eksik', 'Hata');
+        this.toastrService.error('Formunuz eksik', 'Hata');
     }
   }
 }

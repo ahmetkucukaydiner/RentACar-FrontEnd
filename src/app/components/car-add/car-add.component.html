@@ -13,18 +13,18 @@
             </div>
           </div>
           <div class="mb-3">
-            <label for="brandName">Marka</label>
+            <label for="brandId">Marka</label>
             <div class="form-group">
-              <select class="form-select" aria-label="Default select example">
+              <select class="form-select" aria-label="Default select example" formControlName="brandId">
                 <option value="0" [selected]="">Lütfen bir marka seçiniz</option>
                 <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
               </select>
             </div>
           </div>
           <div class="mb-3">
-            <label for="colorName">Renk</label>
+            <label for="colorId">Renk</label>
             <div class="form-group">
-              <select class="form-select" aria-label="Default select example">
+              <select class="form-select" aria-label="Default select example" formControlName="colorId">
                 <option value="0" [selected]="">Lütfen bir renk seçiniz</option>
                 <option *ngFor="let color of colors" [value]="color.id">{{color.name}}</option>
               </select>
